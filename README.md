@@ -1,36 +1,24 @@
 # rollup-starter-code-splitting
 
-This repo contains a bare-bones example of how to create an application using Rollup, with code-splitting and dynamic imports.
+This repo contains steps to reproduce an error message related to code-splitting and react:  
 
+`SyntaxError: Identifier 'React' has already been declared`
 
-## Getting started
-
-Clone this repository and install its dependencies:
 
 ```bash
-git clone https://github.com/rollup/rollup-starter-code-splitting
+git clone https://github.com/camille-hdl/rollup-starter-code-splitting
 cd rollup-starter-code-splitting
 npm install
+npm run build
+npm start
 ```
 
-Run `npm run build` to create two versions of the app, as defined in rollup.config.js:
+Navigate to [localhost:5000](http://localhost:5000).
 
-* `public/module` contains native JavaScript modules, for browsers that support them
-* `public/nomodule` contains [SystemJS](https://github.com/systemjs/systemjs) modules, for legacy browsers
+This example uses:
 
-The `public/index.html` file contains two sets of `<script>` tags, one for each version.
-
-Notice that the seven modules in our `src` folder have been optimised into four modules — two for the 'entry points', and two more for code that is shared by multiple entry points or is loaded dynamically. Rollup will automatically create chunks in such a way that no code is duplicated between them.
-
-Because it outputs native JavaScript modules, there is zero bundler overhead when targeting modern browsers.
-
-
-## Building and serving
-
-`npm run build` builds the application, along with sourcemap files for debugging.
-
-`npm start` launches a server, using [serve](https://github.com/zeit/serve). Navigate to [localhost:5000](http://localhost:5000).
-
-## License
-
-[MIT](LICENSE).
+* react, react-dom
+* babel
+* rollup-plugin-babel
+* rollup-plugin-commonjs
+* rollup-plugin-node-resolve
